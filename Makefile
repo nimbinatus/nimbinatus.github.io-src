@@ -6,6 +6,7 @@ BASEDIR=$(CURDIR)
 INPUTDIR=$(BASEDIR)/content
 OUTPUTDIR=$(BASEDIR)/docs
 CONFFILE=$(BASEDIR)/pelicanconf.py
+DEV_CONF=$(BASEDIR)/dev_pelicanconf.py
 PUBLISHCONF=$(BASEDIR)/publishconf.py
 
 # FTP_HOST=localhost
@@ -42,6 +43,7 @@ help:
 	@echo '                                                                          '
 	@echo 'Usage:                                                                    '
 	@echo '   make html                           (re)generate the web site          '
+	@echo '   make devhtml                        (re)generate the web site for dev  '
 	@echo '   make clean                          remove the generated files         '
 	@echo '   make regenerate                     regenerate files upon modification '
 	@echo '   make publish                        generate using production settings '
@@ -64,6 +66,10 @@ help:
 html:
 	$(shell touch $(OUTPUTDIR)/.nojekyll)
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
+
+devhtml:
+	$(shell touch $(OUTPUTDIR)/.nojekyll)
+	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(DEV_CONF) $(PELICANOPTS)
 
 clean:
 	[ ! -d $(OUTPUTDIR) ] || rm -rf $(OUTPUTDIR)

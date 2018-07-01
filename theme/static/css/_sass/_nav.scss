@@ -1,0 +1,17 @@
+nav {
+  background: aliceblue;
+  height: 100vh;
+  padding: 0;
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  li {
+    background-color: #33d1ff;
+    padding: 10px;
+    &:hover {
+      cursor: pointer;
+      background-color: #00c5ff;
+    }
+  }
+}
