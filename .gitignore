@@ -109,3 +109,5 @@ hidden/
 .sass-cache/
 compile.css
 compile.css.map
+
+.DS_Store
