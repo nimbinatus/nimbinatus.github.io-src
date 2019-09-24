@@ -1,4 +1,5 @@
-cssmin
 markdown
 pelican
-webassets==0.11
+webassets
+cssmin
+beautifulsoup4

@@ -3,11 +3,16 @@
 from __future__ import unicode_literals
 
 AUTHOR = 'Laura Santamaria'
-SITENAME = 'Personal Site'
-SITEURL = 'docs/'
+SITETITLE = 'Yet Another Blog'
+SITENAME = 'Yet Another Blog'
+SITESUBTITLE = 'A Dev Advocate walks into a bar...'
+SITEDESCRIPTION = 'A Dev Advocate walks into a bar...'
+SITEURL = 'http://localhost:8000'
+SITESRC = 'https://github.com/nimbinatus/nimbinatus.github.io'
+SITELOGO = SITEURL + '/static/avatar.png'
+FAVICON = SITEURL + '/static/favicon.ico'
 
 PATH = 'content'
-OUTPUT_PATH = 'docs'
 
 TIMEZONE = 'America/Chicago'
 
@@ -20,43 +25,49 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
-# Blogroll
-LINKS = (('Pelican', 'http://getpelican.com/'),
-         ('Python.org', 'http://python.org/'),
-         ('Jinja2', 'http://jinja.pocoo.org/'),
-         ('You can modify those links in your config file', '#'),)
+# Biography
+BIO = "Laura Santamaria: Developer Advocate @LogDNA. Pythonista. DevOps Advocate."
+PROFILE_IMAGE = 'avatar.png'
 
 # Social widget
-SOCIAL = (('You can add links in your config file', '#'),
-          ('Another social link', '#'),)
+SOCIAL = (
+    ('linkedin', 'https://www.linkedin.com/in/lauraasantamaria'),
+    ('twitter', 'https://twitter.com/nimbinatus'),
+    ('github', 'https://github.com/nimbinatus')
+)
 
 DEFAULT_PAGINATION = 10
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
 
-# Theme info
-THEME = './theme'
-THEME_STATIC_DIR = 'theme'
-THEME_STATIC_PATHS = ['static']
+# URL settings
+ARTICLE_URL = '{date:%Y}/{date:%m}/{date:%d}/{slug}/'
+ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'
+PAGE_URL = 'pages/{slug}/'
+PAGE_SAVE_AS = 'pages/{slug}/index.html'
+
+# Theme
+THEME = 'theme/flex'
+
+# Plugins
+PLUGIN_PATHS = ['pelican-plugins']
+PLUGINS = ['neighbors', 'post_stats']
 
 # static files
 STATIC_PATHS = [
-    'favicon.ico'
+    'static'
 ]
 
-# Plugins
-PLUGIN_PATHS = ['hidden/pelican-plugins']
-PLUGINS = [
-    'assets'
-]
+COPYRIGHT_YEAR = 2019
+COPYRIGHT_NAME = 'Laura A Santamaria'
 
-# Pages
-PAGE_SAVE_AS = '{slug}.html'
+MAIN_MENU = True
 
-# webassets
-# JINJA_ENVIRONMENT = {'webassets.ext.jinja2AssetsExtension': True}
-# WEBASSETS = True
-# ASSET_SOURCE_PATHS = ['static/css']
-# ASSET_URL = 'theme'
-# ASSET_DEBUG = True
+MENUITEMS = (('Archives', '/archives.html'),
+             ('Categories', '/categories.html'),
+             ('Tags', '/tags.html'),)
+
+LINKS = (('Archives', '/archives.html'),
+             ('Categories', '/categories.html'),
+             ('Tags', '/tags.html'),)
